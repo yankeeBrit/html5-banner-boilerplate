@@ -1,0 +1,132 @@
+@import "reset";
+
+@font-face {
+	font-family: GothamBlack;
+	src: url("../fonts/Gotham-Black.ttf"),
+	url("../fonts/Gotham-Black.eot"),
+	url("../fonts/Gotham-Black.woff"),
+	url("../fonts/Gotham-Black.svg");
+}
+
+$bannerWidth: 300px;
+$bannerHeight: 250px;
+
+body {
+  margin: 0;
+
+  #wrapper {
+    width: $bannerWidth;
+    height: $bannerHeight;
+    user-select: none;
+  	cursor: pointer;
+    overflow: hidden;
+    display: none;
+  }
+
+  .banner {
+    position: relative;
+    width: $bannerWidth;
+    height: $bannerHeight;
+    background-color: #444f55;
+    background: #444f55;
+    background: radial-gradient(circle at top, #444f55 0, #0f1012 75%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#444f55", endColorstr="#0f1012", GradientType=1);
+
+    //back-up for browsers that don't support mix-blend-mode
+    @supports not ((mix-blend-mode: soft-light) or (mix-blend-mode: screen)) {
+      background: url("../images/grid-background-600x500.jpg");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+
+    &__img {
+      position: absolute;
+    }
+
+    &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $bannerWidth;
+      height: $bannerHeight;
+    }
+
+    #draft-sponsor-logos {
+      top: 9px;
+      left: 82px;
+      width: 175px;
+      height: 133px;
+    }
+
+    #tune-in {
+      position: absolute;
+      top: 151px;
+      left: 0;
+      width: $bannerWidth;
+      margin: 0;
+      color: #3d8aac;
+      font-family: GothamBlack,"Arial Black","Arial Bold",sans-serif;
+      font-size: 32px;
+      line-height: 30px;
+      text-align: center;
+
+      span {
+        font-size: 78%;
+      }
+
+      sup {
+        font-size: 60%;
+      }
+    }
+
+    #watch-live-now {
+      position: absolute;
+      top: 151px;
+      left: 61px;
+      width: 139px;
+      height: 42px;
+      padding: 7px 30px 7px 10px;
+      background: #3d8aac;
+      color: #fff;
+      font-family: GothamBlack,"Arial Black","Arial Bold",sans-serif;
+      font-size: 25px;
+      line-height: 23px;
+      text-align: center;
+      display: none;
+
+      #arrow {
+        top: 50%;
+        right: 12px;
+        margin-top: -6px;
+        width: 10px;
+        height: 12px;
+      }
+    }
+
+    #espn-app-logos {
+      top: 213px;
+      left: 78px;
+      width: 146px;
+      height: 27px;
+    }
+
+    #grain-overlay {
+      //check if browser supports mix-blend-mode
+      @supports(mix-blend-mode: soft-light){
+        background: url("../images/grain-overlay-tile.png");
+        background-size: 25% 25%;
+        mix-blend-mode: soft-light;
+      }
+    }
+
+    #grid-overlay {
+      //check if browser supports mix-blend-mode
+      @supports(mix-blend-mode: screen){
+        background: url("../images/grid-overlay.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        mix-blend-mode: screen;
+      }
+    }
+  }
+}
